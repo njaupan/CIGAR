@@ -40,7 +40,7 @@ optional arguments:
 |6   |int   |reference  length                         |
 |7   |int   |reference  start                          |
 |8   |int   |reference   end                           |
-|9   |int   |allmatch                                  |
+|9   |int   |match base                                |
 |10  |int   |insertion length                          |
 |11  |int   |insertion position                        |
 |12  |int   |deletion length                           |
