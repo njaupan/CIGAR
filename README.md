@@ -6,6 +6,8 @@ Detect TE insertion polymorphisms from long reads using CIGAR
 ```bash
 minimap2 -t 8 --cs -cx map-ont reference.fa reads.fasta/fastq > output.paf
 
+```
+
 ## 2) Check CIGAR info using the script
 
 ```
