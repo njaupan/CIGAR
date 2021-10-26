@@ -4,26 +4,30 @@ Detect TE insertion polymorphisms from long reads using CIGAR
 ## 1) Map long reads to the reference using minimap2
 
 ```bash
-minimap2 -cx map-ont -t $thread $reference $reads -o $paf
-```
+minimap2 -t 8 --cs -cx map-ont reference.fa reads.fasta/fastq > output.paf
+
 ## 2) Check CIGAR info using the script
 
 ```
-python CIGAR_SV -i $paf
+python cigar_sv_fasta.py -i output.paf -r reference.fa -l reads.fasta/fastq ```
 
-usage: python CIGAR_SV.py [-h] [-i PAF] [-m MIN__ALIGNED_LENGTH]
-                            [-mq MIN__QUERY_LENGTH] [-p]
 
-Statstics of minimap2 alignment results(.paf files)
+usage: python cigar_sv.py -i <input.paf> -r <reference.fa> -l <reads.fastq/fasta>  (option)
+
+A tool to detect large structural variants (SVs) using long read sequencing
 
 optional arguments:
   -h, --help            show this help message and exit
-  -i PAF, --paf PAF     paf file name
-  -m MIN__ALIGNED_LENGTH, --min__aligned_length MIN__ALIGNED_LENGTH
-  -mq MIN__QUERY_LENGTH, --min__query_length MIN__QUERY_LENGTH
-  -p, --primary_aligntment
-                        Exclude secondary and inversion alignments.
+  -i <input.paf>        read alignment paf file with --cs -cx tag
+  -r <reference.fa>     reference genome fasta (uncompressed or bgzipped)
+  -l <reads.fastq/fasta>
+                        query long read fastq/fasta file (uncompressed or bgzipped)
+  -o PATH               output directory [./CIGAR_output]
 
+filter options:
+  -m INT                minimum length of a structural variant for detection [50]
+  -ma INT               minimum length of the alignment block
+  -mq INT               minimum length of the query read
 
 ```
 # Detected SV in csv format.
