@@ -36,18 +36,15 @@ optional arguments:
 |2   |int   |query start                               |
 |3   |int   |query end                                 |
 |4   |int   |direction                                 |
-|5   |int   |reference sequence name                   |
+|5   |string|reference sequence name                   |
 |6   |int   |reference  length                         |
-|7   |int   |reference  start                          |
-|8   |int   |reference   end                           |
-|9   |int   |match base                                |
-|10  |int   |insertion length                          |
-|11  |int   |insertion position                        |
-|12  |int   |deletion length                           |
-|13  |int   |deletion position                         |
-|14  |int   |identity                                  |
-|15  |int   |primary/secondary alignment               |
-|16  |int   |query covrage                             |
+|7   |int   |sv start  position on reference           |
+|8   |int   |sv end  position on reference             |
+|9   |int   |sv type (insertion or deletion) (ins/del) |
+|10  |int   |mapping quality                           |
+|11  |string|primary alignment                         |
+|12  |int   |blast identity                            |
+|13  |string|corresponding sv fasta sequence           |
 
 
 # Contact
